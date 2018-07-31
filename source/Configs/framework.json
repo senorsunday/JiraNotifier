@@ -1,0 +1,10 @@
+{
+	"title":"Front End Framework",
+	"settings":{
+		"Config URLs":{
+			"value":"",
+			"placeholder": "Comma separated URLs",
+			"hidden": false
+		}
+	}
+}

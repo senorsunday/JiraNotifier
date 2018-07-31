@@ -1,0 +1,39 @@
+{
+    "homepage_url": "https://github.com/senorsunday/JiraNotifier",
+    "name": "Jira Notifier",
+    "description": "Notifies you of any new tickets in your queue and when tickets you're assigned to change.",
+    "version": "0",
+    "icons": { "16": "Public/Icons/favicon.ico", "128": "Public/Icons/favicon.ico" }
+    "manifest_version": 2,
+    "background": { "page": "Background/index.html" },
+    "content_security_policy": "script-src 'self'; object-src 'self'",
+    "content_scripts": [
+        {
+            "js": [ "active.js" ],
+            "matches": [ "*://*/*" ]
+        }
+    ],
+    "browser_action": {
+        "default_title": "Jira Notifier",
+        "default_popup": "Background/Settings/toolbar.html",
+        "browser_style": false,
+        "default_icon": { "16": "Public/Icons/favicon.ico", "128": "Public/Icons/favicon.ico" }
+    },
+    "options_ui": {
+        "page": "Background/Settings/settings.html",
+        "browser_style": false
+    },
+    "applications": {       // Not supported in chrome.
+      "gecko": {
+            "id": "jira_notifier@github.com"
+        }
+    },
+    "web_accessible_resources": ["Public/*/*"],
+    "permissions": [
+        "*://*/*",          // Defaults to running on all sites. You can programatically turn this off, not on.
+        "storage",          // To store settings
+        "tabs",             // Accessing open tabs, allowing tab changes
+        "notifications",    // To alert the user
+        "alarms"            // To schedule tasks
+    ]
+}

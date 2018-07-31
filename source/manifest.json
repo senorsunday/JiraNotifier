@@ -1,0 +1,55 @@
+{
+    "homepage_url": "https://github.com/senorsunday/FrontEndFramework",
+    "name": "Front End Framework",
+    "description": "This is a framework for webextensions, so you can deploy one quickly without any front-end work",
+    "version": "2018.7.31.0",
+    "icons": {
+        "16": "Public/Icons/favicon.svg",
+        "96": "Public/Icons/favicon.svg"
+    },
+    "manifest_version": 2,
+    "background": {
+        "page": "Background/index.html"
+    },
+    "content_security_policy": "script-src 'self'; object-src 'self'",
+    "content_scripts": [
+        {
+            "js": [
+                "active.js"
+            ],
+            "matches": [
+                "*://*/*"
+            ]
+        }
+    ],
+    "browser_action": {
+        "default_title": "Front End Framework",
+        "default_popup": "Background/Settings/toolbar.html",
+        "browser_style": false,
+        "default_icon": {
+            "16": "Public/Icons/favicon.svg",
+            "32": "Public/Icons/favicon.svg"
+        }
+    },
+    "options_ui": {
+        "page": "Background/Settings/settings.html",
+        "browser_style": false
+    },
+    "applications": {
+        "gecko": {
+            "id": "front_end_framework@github.com"
+        }
+    },
+    "web_accessible_resources": [
+        "Public/*/*"
+    ],
+    "permissions": [
+        "*://*/*",
+        "storage",
+        "tabs",
+        "contextMenus",
+        "clipboardWrite",
+        "notifications",
+        "alarms"
+    ]
+}
