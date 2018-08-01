@@ -7,5 +7,33 @@
         <link rel="stylesheet" type="text/css" href="../../Public/CSS/bootstrap.min.css">
     </head>
     <body>
-    </body>
+        <div class="container-fluid">
+            <center class='heading card card-block bg-primary text-white'> Jira Notifier Settings </center>
+            <div class="row">
+            	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    <center class='card card-block'> Jira Server </center>
+                    <input id='API' class='setting form-control' type='text' placeholder='Usually "<jira site>/rest/api/2/search"'>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    <center class='card card-block'> Query Frequecy</center>
+                    <input id='Freq' class='setting form-control' type='number' placeholder="Minutes" min=1 max=1440 step=1>
+                </div>
+            </div>
+            <center class='heading card card-block bg-dark text-white'> Use one of the two below </center>
+            <div class="row">
+            	<div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+                    <center class='card card-block'> Queue(s) </center>
+                    <input id='Queue' class='setting form-control' type='text' placeholder="Comma separated">
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+                    <center class='card card-block'> Query (overrides Queue) </center>
+                    <input id='Query' class='setting form-control' type='text' placeholder='JQL Format, after "jql="'>
+                </div>
+            </div>
+            <div class="row">
+            	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <button id='options' class='btn btn-info' style="width:100%"> Settings Page </button>
+                </div>
+            </div>
+        </div>
 </html>

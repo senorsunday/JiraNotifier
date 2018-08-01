@@ -1,34 +1,23 @@
 {
-    "homepage_url": "https://github.com/senorsunday/FrontEndFramework",
-    "name": "Front End Framework",
-    "description": "This is a framework for webextensions, so you can deploy one quickly without any front-end work",
-    "version": "2018.7.31.0",
+    "homepage_url": "https://github.com/senorsunday/JiraNotifier",
+    "name": "Jira Notifier",
+    "description": "Notifies you of any new tickets in your queue and when tickets you're assigned to change.",
+    "version": "2018.8.1.0",
     "icons": {
-        "16": "Public/Icons/favicon.svg",
-        "96": "Public/Icons/favicon.svg"
+        "16": "Public/Icons/favicon.ico",
+        "128": "Public/Icons/favicon.ico"
     },
     "manifest_version": 2,
     "background": {
         "page": "Background/index.html"
     },
-    "content_security_policy": "script-src 'self'; object-src 'self'",
-    "content_scripts": [
-        {
-            "js": [
-                "active.js"
-            ],
-            "matches": [
-                "*://*/*"
-            ]
-        }
-    ],
     "browser_action": {
-        "default_title": "Front End Framework",
+        "default_title": "Jira Notifier",
         "default_popup": "Background/Settings/toolbar.html",
         "browser_style": false,
         "default_icon": {
-            "16": "Public/Icons/favicon.svg",
-            "32": "Public/Icons/favicon.svg"
+            "16": "Public/Icons/favicon.ico",
+            "128": "Public/Icons/favicon.ico"
         }
     },
     "options_ui": {
@@ -37,7 +26,7 @@
     },
     "applications": {
         "gecko": {
-            "id": "front_end_framework@github.com"
+            "id": "jira_notifier@github.com"
         }
     },
     "web_accessible_resources": [
@@ -47,8 +36,6 @@
         "*://*/*",
         "storage",
         "tabs",
-        "contextMenus",
-        "clipboardWrite",
         "notifications",
         "alarms"
     ]
