@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Front End Framework
 
 ### TODO
@@ -12,7 +11,3 @@
 1. Set static colors in configs (browser.runtime.onMessage)
 1. Chrome Support
     * ls() not working with fetch().then(a=>a.blob())
-=======
-# JiraNotifier
-Notifies you of any new tickets in your queue and when tickets you're assigned to change.
->>>>>>> 90a94e52f0ea086e0d115d8845451c49da5f0356
