@@ -4,8 +4,8 @@
     "description": "Notifies you of any new tickets in your queue and when tickets you're assigned to change.",
     "version": "2018.8.1.0",
     "icons": {
-        "16": "Public/Icons/favicon.ico",
-        "128": "Public/Icons/favicon.ico"
+        "16": "Public/Icons/favicon.svg",
+        "128": "Public/Icons/favicon.svg"
     },
     "manifest_version": 2,
     "background": {
@@ -16,8 +16,8 @@
         "default_popup": "Background/Settings/toolbar.html",
         "browser_style": false,
         "default_icon": {
-            "16": "Public/Icons/favicon.ico",
-            "128": "Public/Icons/favicon.ico"
+            "16": "Public/Icons/favicon.svg",
+            "128": "Public/Icons/favicon.svg"
         }
     },
     "options_ui": {

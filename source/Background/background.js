@@ -68,7 +68,7 @@ async function main(){  // Same as 'const main = async function(){...}'
 function notify(ID, title, message){
     browser.notifications.create(ID, {
         "type": "basic",
-        "iconUrl": browser.extension.getURL("Public/Icons/favicon.ico"),
+        "iconUrl": browser.extension.getURL("Public/Icons/favicon.svg"),
         "title": title,
         "message": message
     })
