@@ -70,7 +70,6 @@ function sleep(ms){
     return new Promise( resolve => setTimeout(resolve, ms) );
 };
 
-
 // Fetch and parse an object with lots of error handling
 async function fetchObject(url, args=null){
     let response = null

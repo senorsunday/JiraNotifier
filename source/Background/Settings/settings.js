@@ -21,6 +21,7 @@ async function onLoad(){
             let set = {};
             set[elem.target.id] = elem.target.value
             browser.storage.sync.set( set );
+            browser.runtime.sendMessage('main');
         });
     }
 };

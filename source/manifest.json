@@ -2,9 +2,11 @@
     "homepage_url": "https://github.com/senorsunday/JiraNotifier",
     "name": "Jira Notifier",
     "description": "Notifies you of any new tickets in your queue and when tickets you're assigned to change.",
-    "version": "2018.8.1.0",
+    "version": "2018.8.1.3",
     "icons": {
         "16": "Public/Icons/favicon.svg",
+        "32": "Public/Icons/favicon.svg",
+        "64": "Public/Icons/favicon.svg",
         "128": "Public/Icons/favicon.svg"
     },
     "manifest_version": 2,
@@ -17,6 +19,8 @@
         "browser_style": false,
         "default_icon": {
             "16": "Public/Icons/favicon.svg",
+            "32": "Public/Icons/favicon.svg",
+            "64": "Public/Icons/favicon.svg",
             "128": "Public/Icons/favicon.svg"
         }
     },
