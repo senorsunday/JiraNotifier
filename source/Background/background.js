@@ -9,7 +9,7 @@ browser.runtime.onMessage.addListener( async(message, sender, response) => {
         if(debug) response(true);
         else response(false);
     }
-    return true;
+    return;
 });
 
 browser.runtime.onInstalled.addListener( async(details)=>{
