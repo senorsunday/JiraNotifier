@@ -2,7 +2,7 @@
     "homepage_url": "https://github.com/senorsunday/JiraNotifier",
     "name": "Jira Notifier",
     "description": "Notifies you of any new tickets in your queue and when tickets you're assigned to change.",
-    "version": "3",
+    "version": "1",
     "icons": {
         "16": "Public/Icons/favicon.svg",
         "32": "Public/Icons/favicon.svg",

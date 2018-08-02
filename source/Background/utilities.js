@@ -77,12 +77,6 @@ async function fetchObject(url, args=null){
         response = await fetch(url, args);
     }
     catch(e){
-        browser.notifications.create('', {
-            "type": "basic",
-            "iconUrl": browser.extension.getURL("Public/Icons/favicon.svg"),
-            "title": "Can't access file",
-            "message": "Check the path and certificate for:\n"+url
-        });
         console.error('Request failed:', {'Error':e, 'URL':url, 'args':args} );
         return { 'Error':e, 'URL':url, 'args':args }
     }
@@ -91,12 +85,6 @@ async function fetchObject(url, args=null){
         return responseObject; // Success!
     }
     catch(e){
-        browser.notifications.create('', {
-            "type": "basic",
-            "iconUrl": browser.extension.getURL("Public/Icons/favicon.svg"),
-            "title": "Can't parse the file",
-            "message": "Check the file (URL in console):\n"+url
-        })
         console.error('Failed to load:', {'Error':e, 'URL':url, 'args':args} );
         return { 'Error':e, 'URL':url, 'args':args }
     }

@@ -32,11 +32,11 @@ browser.runtime.onInstalled.addListener( async(details)=>{
     else notify( 'Settings', 'Jira Notifier Settings Unset', 'Click here to go to settings' );
 } );
 
-// "project in (EERS) AND resolution = Done AND assignee in (EMPTY, currentUser()) ORDER BY created DESC"
-
+// The notifications object persists and can change ID per visible popup
 browser.notifications.onClicked.addListener( ID => {
-    if(ID=='Settings') browser.runtime.openOptionsPage();
-    if(ID=='Tickets'){
+    if(ID==='Jira') browser.tabs.create({'url':settings.API});
+    if(ID==='Settings') browser.runtime.openOptionsPage();
+    if(ID==='Tickets'){
         let query = '';
         if(settings.Query) query = unescape(settings.Query);
         else query = "project = "+settings.Queue+" AND resolution = Unresolved AND assignee = EMPTY"
@@ -48,8 +48,10 @@ browser.notifications.onClicked.addListener( ID => {
     browser.notifications.clear(ID);
 })
 
-async function main(){  // Same as 'const main = async function(){...}'
+// 
+async function main(){
     if(debug) console.info('Running main()');
+    clearTimeout(timer); // Just in case I missed any logic bugs
     settings = await browser.storage.sync.get()
     let query = '';
     if(settings.Query) query = unescape(settings.Query);
@@ -64,11 +66,19 @@ async function main(){  // Same as 'const main = async function(){...}'
         'headers': {'Content-Type': "application/json"}
     }
     let jiraPoll = await fetchObject(settings.API+'/rest/api/2/search', args)
-    if(jiraPoll.hasOwnProperty('errorMessages')){
-        notify( 'Settings', 'Bad Jira Query', jiraPoll.errorMessages[0] );
+    if(jiraPoll.hasOwnProperty('Error')){
+        notify( 'Jira', 'Not logged into Jira', 'Click here to go to '+settings.API );
+        let t=new Date()
+        console.error( t.getHours()+':'+t.getMinutes()+':'+t.getSeconds()+'--Not logged into Jira\n'+settings.API );
         return
     }
-    console.log("Tickets open:", jiraPoll.total)
+    if(jiraPoll.hasOwnProperty('errorMessages')){
+        // if( branch(jiraPoll.errorMessages, 1) )
+        notify( 'Settings', 'Bad Jira Query/Queue', jiraPoll.errorMessages );
+        console.error( t.getHours()+':'+t.getMinutes()+':'+t.getSeconds()+'--Bad Jira Query/Queue\n'+jiraPoll.errorMessages+'\n'+settings.Query||settings.Queue );
+        return
+    }
+    console.info("Tickets open:", jiraPoll.total)
     if( jiraPoll.total>0 ){
         notify( 'Tickets', jiraPoll.total+" Tickets", "Click here to view" );
     }
@@ -78,7 +88,7 @@ async function main(){  // Same as 'const main = async function(){...}'
 function notify(ID, title, message){
     browser.notifications.create(ID, {
         "type": "basic",
-        "iconUrl": browser.extension.getURL("Public/Icons/favicon.svg"),
+        "iconUrl": browser.extension.getURL("Public/Icons/favicon.png"),
         "title": title,
         "message": message
     })
